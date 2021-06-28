@@ -35,5 +35,31 @@ namespace Metragem.Controllers
             
 
         }
+
+        [AcceptVerbs("POST")]
+        [Route("CalculaValorMetro")]
+        public HttpResponseMessage CalculaValorMetro([FromBody] ConsultaValor mdl)
+        {
+            if (mdl.Metragem == 0 && mdl.VlImovel == 0)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, "Erro na informação de valores");
+            }
+
+            try
+            {
+                Imovel imovel = new Imovel();
+                imovel.Metragem = mdl.Metragem;
+                imovel.Valor = mdl.VlImovel;
+                imovel.ValorMetro = imovel.calculaValorMetro().ToString("F2");
+                return Request.CreateResponse(HttpStatusCode.OK, imovel);
+            }
+            catch (WebException we)
+            {
+                return Request.CreateResponse("Erro na execução da api: " + we.Message);
+            }
+
+
+        }
+
     }
 }

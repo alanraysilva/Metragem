@@ -184,6 +184,8 @@
     </Compile>
     <Compile Include="Models\Ambiente.cs" />
     <Compile Include="Models\ConsultaAmbiente.cs" />
+    <Compile Include="Models\ConsultaValor.cs" />
+    <Compile Include="Models\Imovel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

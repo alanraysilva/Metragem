@@ -1,5 +1,0 @@
-From mcr.microsoft.com/dotnet/framework/aspnet:runtime	
-Label version="1.0" maintainer="Alan"
-workdir /app
-Copy C:/Solutions/Alan/Experimentos/Metragem/Metragem/bin/app.publish/.
-EntryPoint["donet", "Metragem.dll"]

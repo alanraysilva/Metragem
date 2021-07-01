@@ -23,6 +23,11 @@ namespace Metragem.Models
             return ((double)Valor / Metragem) *1000;
         }
 
+        public double CalculaValorImovel() 
+        {
+            return ((double)Valor * Metragem);
+        }
+
         public Imovel()
         {
 

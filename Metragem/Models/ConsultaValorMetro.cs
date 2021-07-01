@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Metragem.Models
 {
-    public class ConsultaValor
+    public class ConsultaValorMetro
     {
         [JsonProperty("metragem")]
         public double Metragem { get; set; }

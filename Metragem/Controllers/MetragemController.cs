@@ -15,7 +15,6 @@ namespace Metragem.Controllers
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
         [AllowAnonymous]
-        [Route("CalculaValorMetro")]
         [ResponseType(typeof(ConsultaValorMetro))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorMetro")]
@@ -64,7 +63,6 @@ namespace Metragem.Controllers
         }
 
         [AllowAnonymous]
-        [Route("CalculaValorMetro")]
         [ResponseType(typeof(ConsultaValorImovel))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorImovel")]

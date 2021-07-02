@@ -5,15 +5,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace Metragem.Controllers
 {
     [RoutePrefix("api/metragem")]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
     public class MetragemController : ApiController
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
     {
+        [AllowAnonymous]
+        [Route("CalculaValorMetro")]
+        [ResponseType(typeof(ConsultaValorMetro))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorMetro")]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public IHttpActionResult CalculaValorMetro([FromBody] ConsultaValorMetro mdl)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             if (ModelState.IsValid)
             {                
@@ -55,9 +63,14 @@ namespace Metragem.Controllers
 
         }
 
+        [AllowAnonymous]
+        [Route("CalculaValorMetro")]
+        [ResponseType(typeof(ConsultaValorImovel))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorImovel")]
+#pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public IHttpActionResult CalculaValorImovel([FromBody] ConsultaValorImovel mdl)
+#pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
         {
             if (ModelState.IsValid)
             {

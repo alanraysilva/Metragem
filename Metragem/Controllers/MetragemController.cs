@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 
 namespace Metragem.Controllers
@@ -18,6 +19,7 @@ namespace Metragem.Controllers
         [ResponseType(typeof(ConsultaValorMetro))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorMetro")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public IHttpActionResult CalculaValorMetro([FromBody] ConsultaValorMetro mdl)
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
@@ -30,11 +32,11 @@ namespace Metragem.Controllers
                 }
                 else if (mdl.VlImovel == 0)
                 {                 
-                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metro está zerado.");
+                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do imovel está zerado ou nulo.");
                 }
                 else if (mdl.Metragem == 0)
                 {
-                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metro está zerado.");
+                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metragem está zerada ou nulo.");
                 }
                 else
                 {
@@ -66,6 +68,7 @@ namespace Metragem.Controllers
         [ResponseType(typeof(ConsultaValorImovel))]
         [AcceptVerbs("POST")]
         [Route("CalculaValorImovel")]
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
 #pragma warning disable CS1591 // Missing XML comment for publicly visible type or member
         public IHttpActionResult CalculaValorImovel([FromBody] ConsultaValorImovel mdl)
 #pragma warning restore CS1591 // Missing XML comment for publicly visible type or member
@@ -78,11 +81,11 @@ namespace Metragem.Controllers
                 }
                 else if (mdl.VlMetro == 0)
                 {
-                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metro está zerado.");
+                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metro quadrado está zerado ou nulo.");
                 }
                 else if (mdl.MetroQuadrado == 0)
                 {
-                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o valor do metro está zerado.");
+                    return BadRequest("Erro na informação de valores. Não é possível calcular, pois o metro quadrado está zerado  ou nulo.");
                 }
                 else
                 {

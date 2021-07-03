@@ -2,6 +2,7 @@
 #For more information, please see https://aka.ms/containercompat 
 
 FROM mcr.microsoft.com/dotnet/framework/aspnet:4.8-windowsservercore-ltsc2019
+ENV ASPNETCORE_ENVIRONMENT=Development
 ARG source
 WORKDIR /inetpub/wwwroot
 EXPOSE 80

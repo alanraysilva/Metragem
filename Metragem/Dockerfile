@@ -7,3 +7,4 @@ ARG source
 WORKDIR /inetpub/wwwroot
 EXPOSE 80
 COPY ${source:-obj/Docker/publish} .
+CMD gunicorn gettingstarted.wsgi --log-file -
